@@ -9,7 +9,7 @@
 
 ### Enkapsulacja 
 
-Dodaj prywatną metodę, która będzie formatować pytanie oraz dla klasy `Question` prywatne atrybuty, które będą przechowywać indeks bieżącego pytania i wynik, ograniczając bezpośredni dostęp do tych danych z zewnątrz klasy
+Dodaj prywatną metodę, która będzie formatować pytanie w klasie `Question` oraz dla klasy `Game` prywatne atrybuty, które będą przechowywać indeks bieżącego pytania i wynik, ograniczając bezpośredni dostęp do tych danych z zewnątrz klasy
 
 - `_format_question_and_options` w `Question` to prywatna metoda, która formatuje pytanie i opcje odpowiedzi, używana tylko przez metodę __str__, co ukrywa jej implementację przed użytkownikami klasy.
 - `_current_question_index` i `_score` w `Game` to prywatne atrybuty, które są używane do śledzenia stanu gry i wyników, chroniąc te dane przed nieautoryzowanym dostępem i modyfikacją z zewnątrz klasy.
