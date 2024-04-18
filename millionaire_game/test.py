@@ -8,3 +8,13 @@ class Example:
 
 obj_ex = Example('kubek')
 print(obj_ex)
+
+print(obj_ex.__class__.__name__)
+if obj_ex.__class__.__name__ == 'Exmple':
+    print('Prawda!')
+
+
+# number = 3.0
+# print(isinstance(number, float))
+
+print(isinstance(obj_ex, int))
