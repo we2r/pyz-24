@@ -23,8 +23,6 @@ class Game:
         else:
             raise IndexError
 
-    def __set__(self, instance, value):
-
 
     def get_next_question(self):
         if self._current_question_index < len(self.questions):
