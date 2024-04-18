@@ -8,4 +8,11 @@ class Question:
         return user_answer == self.correct_answer
 
     def __str__(self):
-        return f"{self.question}\nOptions: {self.options}"
+        return self._format_question_and_options()
+
+    def _format_question_and_options(self):
+        responses = ""
+        for id, res in enumerate(self.options):
+            responses += f'{id + 1}) - {res}\n'
+        return f"{self.question}\n{responses}"
+

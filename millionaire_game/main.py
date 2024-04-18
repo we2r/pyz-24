@@ -15,7 +15,7 @@ def play_game(game):
         else:
             print("Wrong! The correct answer was:", question.correct_answer)
             break
-    print(f"Your final score is: {game.score}")
+    print(f"Your final score is: {game.get_score()}")
 
 
 def main():
