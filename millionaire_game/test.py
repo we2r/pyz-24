@@ -14,7 +14,10 @@ class Example(UpperExample):
             return self.name == other.name
         else:
             return False
-
+    def __del__(self):
+        pass
+        # usun obiekt example
+        # usun jego zależności
 
 
 
@@ -24,6 +27,8 @@ print(obj_ex)
 print(obj_ex2)
 print(obj_ex == obj_ex2)
 
+del obj_ex2
+print(obj_ex2)
 # print(obj_ex)
 #
 # print(obj_ex.__class__.__name__)
