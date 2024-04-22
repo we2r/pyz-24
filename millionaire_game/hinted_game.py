@@ -1,4 +1,5 @@
 from game import Game
+import datetime
 
 class HintGame(Game):
     hints_allowed = 3
@@ -13,8 +14,15 @@ class HintGame(Game):
             print("No hints left!")
 
     @classmethod
-    def set_hints_allowed(cls, number):
+    def set_hints_number(cls, number):
         cls.hints_allowed = number
+
+    @staticmethod
+    def is_weekend(day):
+        if day.weekday() == 5 or day.weekday() == 6:
+            return 'We play!'
+        return 'Sorry no!'
+
 
 
 
@@ -26,16 +34,18 @@ def main():
         Question("Who wrote 'Macbeth'?", ["Shakespeare", "Austen", "Joyce", "Hemingway"], "Shakespeare", difficulty='easy'),
     ]
 
-    game1 = HintGame(question_list)
-    game2 = HintGame(question_list)
+    # game1 = HintGame(question_list)
+    # game2 = HintGame(question_list)
+    #
+    # print(game1.hints_allowed)
+    # print(game2.hints_allowed)
+    # HintGame.set_hints_number(5)
+    #
+    # print(game1.hints_allowed)
+    # print(game2.hints_allowed)
 
-    print(game1.hints_allowed)
-    print(game2.hints_allowed)
-    HintGame.set_hints_allowed(5)
-
-    print(game1.hints_allowed)
-    print(game2.hints_allowed)
-
+    today = datetime.date.today()
+    print(HintGame.is_weekend(today))
 
 
 if __name__ == '__main__':
