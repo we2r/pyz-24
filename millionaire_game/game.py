@@ -1,6 +1,6 @@
 from question import Question
 from typing import List, Optional
-
+from fileloader import load_questions_from_file
 def log_answers(func):
     def wrapper(self, *args):
         print('*' * 30)
@@ -21,6 +21,11 @@ class Game:
         self._current_question_index = 0
         self._score = 0
         self.check = check_answer_correct
+
+    @classmethod
+    def from_json(cls, filename):
+        questions = load_questions_from_file(filename)
+        return cls(questions)
 
     def __str__(self):
         return f"Current score: {self._score}"
