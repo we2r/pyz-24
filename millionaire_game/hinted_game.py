@@ -24,7 +24,13 @@ class HintGame(Game):
         return 'Sorry no!'
 
 
+    @property
+    def score(self):
+        return self._score
 
+    @property
+    def remaining_questions(self):
+        return len(self.questions) - self._current_question_index
 
 def main():
     from question import Question

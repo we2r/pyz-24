@@ -1,8 +1,22 @@
-def check_answer_correct(question, answer):
+from question import Question
+from typing import List, Optional
+
+def log_answers(func):
+    def wrapper(self, *args):
+        print('*' * 30)
+        result = func(self, *args)
+        print('Your answer:', args[0])
+        print('Score: ', self._score)
+        return result
+    return wrapper
+
+def check_answer_correct(question: Question, answer: str):
+    """check if answer is correct"""
     return question.correct_answer == answer
 
+
 class Game:
-    def __init__(self, questions):
+    def __init__(self, questions: List[Question]):
         self.questions = questions
         self._current_question_index = 0
         self._score = 0
@@ -10,21 +24,24 @@ class Game:
 
     def __str__(self):
         return f"Current score: {self._score}"
-    def __len__(self):
+
+    def __len__(self) -> int:
         return len(self.questions)
-    def __getitem__(self, index):
-        # return self.questions[index] if index < len(self.questions) else None
+
+    def __getitem__(self, index) -> Optional[Question]:
+        """ get question for the Game until available  """
         if index < len(self.questions):
             return self.questions[index]
         else:
-            None
-    def __setitem__(self, index, value):
+            return None
+
+    def __setitem__(self, index: int, value: Question) -> None:
         if index < len(self.questions):
             self.questions[index] = value
         else:
             raise IndexError
 
-    def get_next_question(self):
+    def get_next_question(self) -> Optional[Question]:
         if self._current_question_index < len(self.questions):
             question = self.questions[self._current_question_index]
             self._current_question_index += 1
@@ -32,7 +49,8 @@ class Game:
         else:
             return None
 
-    def submit_answer(self, answer):
+    @log_answers
+    def submit_answer(self, answer: str) -> bool:
         current_question = self.questions[self._current_question_index - 1]
         if self.check(current_question, answer):
             self._score += 100
@@ -40,7 +58,7 @@ class Game:
         else:
             return False
 
-    def get_score(self):
+    def get_score(self) -> str:
         return f'{self._score} PLN'
 
 

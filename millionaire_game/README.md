@@ -16,4 +16,4 @@
 6. Dodaj mechanizm zwiększający kwotę wygranej z każdym pytaniem jak w prawdziwych Milionerach
 
 
-6. Odliczanie czasu `TimedGame`. Dodaj mechanizm odliczania czasu, w tym celu zapoznaj się z działaniem na wątkach. Szczególnie z `threading.Timer` 
+7. Odliczanie czasu `TimedGame`. Dodaj mechanizm odliczania czasu, w tym celu zapoznaj się z działaniem na wątkach. Szczególnie z `threading.Timer` 
