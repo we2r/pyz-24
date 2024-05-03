@@ -66,6 +66,10 @@ class Game:
     def get_score(self) -> str:
         return f'{self._score} PLN'
 
+    @staticmethod
+    def is_valid(answer_nr: int, options: list) -> bool:
+        return 0 < answer_nr <= len(options)
+
 
 def main():
     from question import Question

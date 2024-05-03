@@ -26,7 +26,7 @@ def play_game(game):
 
         answer = input("Please enter the number of your answer: ")
 
-        if game.submit_answer(question.options[int(answer) - 1]):
+        if Game.is_valid(int(answer), question.options) and game.submit_answer(question.options[int(answer) - 1]):
             print("The correct answer --> ", question.correct_answer)
             print(f"Current score: {game.get_score()}")
         else:
