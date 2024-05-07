@@ -23,6 +23,13 @@ class HintGame(Game):
             return 'We play!'
         return 'Sorry no!'
 
+@property
+def score(self):
+    return self.score
+
+@property
+def remaining_questions(self):
+    return len(self.questions) - self.current_question_index
 
 
 

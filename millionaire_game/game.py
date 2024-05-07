@@ -1,5 +1,36 @@
+import json
 def check_answer_correct(question, answer):
     return question.correct_answer == answer
+
+def log_answers(func):
+    def wrapper(self, *args):
+        print('*' * 30)
+        result = func(self, *args)
+        print('Your answer:', args[0])
+        print('Score: ', self._score)
+        return result
+    return wrapper
+
+
+@classmethod
+def from_json(cls, filename):
+    with open(filename, 'r') as file:
+        data = json.load(file)
+    questions = []
+    for item in data:
+        question = Question(
+            item['question'],
+            item['options'],
+            item['correct_answer'],
+            item['difficulty']
+        )
+        questions.append(question)
+    return cls(questions)
+
+
+    @staticmethod
+    def is_valid(answer_nr: int, options: list) -> bool:
+        return 0 < answer_nr <= len(options)
 
 class Game:
     def __init__(self, questions):
@@ -61,3 +92,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+

@@ -33,6 +33,15 @@ def play_game(game):
             break
     print(f"Your final score is: {game.get_score()}")
 
+    # file_name = 'game.json'
+    # choice = input('Save game to file? Y/N')
+    # if choice == 'Y' or choice == 'y':
+    #     return save_to_file(game.get_score(), game._current_question_index, file_name)
+    # else:
+    #     None
+
+
+
 
 def main():
     question_list = load_questions_from_file('questions.json')
