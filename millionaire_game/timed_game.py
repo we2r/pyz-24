@@ -1,21 +1,48 @@
+import threading
+from typing import Optional
+
 from game import Game
+from millionaire_game.question import Question
+
 
 class TimedGame(Game):
     def __init__(self, questions, time_limit):
         super().__init__(questions)
+        self.timer = None
         self.time_limit = time_limit
 
+    def start_timer(self):
+        print(f"Time started...! You have {self.time_limit} sec")
+        self.timer = threading.Timer(self.time_limit, self.time_up)
+        self.timer.start()
+
+    def time_up(self):
+        print("Time over!!!")
+        self.submit_answer(None)
+
+    def get_next_question(self) -> Optional[Question]:
+        if self._current_question_index < len(self.questions):
+            question = self.questions[self._current_question_index]
+            self._current_question_index += 1
+            self.start_timer()
+            return question
+        else:
+            return None
+
     def submit_answer(self, answer):
+        if self.timer:
+            self.timer.cancel()
+
+        if answer is None:
+            print("---> Didn't answer on time!")
+            return False
+
         if super().submit_answer(answer):
-            print(f"Correct! Remaining time: {self.time_limit}")
-            return True
-        elif self.time_limit > 0:
-            self.time_limit -= 10
-            print(f"Wrong! Time penalty applied. Remaining time: {self.time_limit}")
             return True
         else:
-            print(f"Wrong! No more time left!")
-            return False
+            self._score -= 10
+            print(f"Wrong!")
+            return True
 
 
     def show_best_time(self):

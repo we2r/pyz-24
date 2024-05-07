@@ -52,7 +52,7 @@ def main():
             game_instance = HintGame(question_list)
             break
         elif selected_game == '3':
-            game_instance = TimedGame(question_list, 20)
+            game_instance = TimedGame(question_list, 10)
             break
         else:
             print('No such option, please try again')
