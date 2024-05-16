@@ -22,12 +22,11 @@ Stworzenie aplikacji webowej "Horoskop" w Flask, która pozwala użytkownikowi w
 - Dane dotyczące znaków zodiaku i przepowiedni mogą być pobierane z zewnętrznego API.
 
 ### API
-- Wybierz darwe API , które oferuje przepowiednie dzienna, tygodniową, miesięczną i roczną dla każdego znaku zodiaku. 
+- Wybierz darmowe API , które oferuje przepowiednie dzienna, tygodniową, miesięczną i roczną dla każdego znaku zodiaku. 
 - Można je wykorzystać do uzyskania przepowiedni na podstawie daty urodzenia np. Aztro, Horoscope Match itp.
 
 ### Uruchomienie
 - Aplikacja powinna być łatwa do uruchomienia lokalnie, zalecane użycie wirtualnego środowiska i `requirements.txt` dla zależności Pythona.
-
 ### Wskazówki
 - Rozważ użycie JavaScriptu do dodatkowej interakcji na stronie, np. do wyboru innej daty bez konieczności ponownego ładowania strony.
 - Zapewnij walidację wprowadzanych danych w formularzu, aby upewnić się, że data urodzenia jest w prawidłowym formacie.
